@@ -1,8 +1,7 @@
 'use strict'
 
 angular.module('zebraApp')
-  .controller 'RoomCtrl', ($scope, $routeParams,$location,  angularFire, fb) ->
-
+  .controller 'RoomCtrl', ($scope, $routeParams, $location, angularFire, fb) ->
     user = localStorage['user']
     if typeof user is "undefined"
       $('#userModal').modal()
@@ -34,9 +33,9 @@ angular.module('zebraApp')
         $scope.room.cards = []  if typeof $scope.room.cards is "undefined"
         if $scope.card != ''
           $scope.room.cards.push
-            body : $scope.card
+            body: $scope.card
             id: fb.makeid(5)
-            lane : laneId
+            lane: laneId
             user: $scope.user.id
           $scope.card = ''
         this

@@ -7,21 +7,20 @@
 
 </div>
 
-<div><input type="text" ng-model="laneName"/><br><button type="button" ng-click="createLane()" class="btn">Add lane</button></div>
+<div><input type="text" ng-model="laneName"/><br>
+    <button type="button" ng-click="createLane()" class="btn">Add lane</button>
+</div>
 <table class="highway">
     <tr>
         <td ng-repeat="lane in room.lanes" class="lane">
-            <div class="well">
-                <h2>{{ lane.name }}</h2>
-                <ul ng-repeat="card in room.cards | filter: {lane : lane.id}" class="unstyled">
-                    <li class="card">{{ card.body }} <button class="btn btn-danger" ng-click="remove(card)">Delete</button></li>
-                </ul>
-            </div>
+            <h2>{{ lane.name }}</h2>
+            <ul ng-repeat="card in room.cards | filter: {lane : lane.id}" class="unstyled">
+                <li class="card">{{ card.body }}</li>
+            </ul>
 
         </td>
     </tr>
 </table>
-
 
 
 <div class="users">

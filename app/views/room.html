@@ -1,25 +1,24 @@
-<div class="well form-inline">
+<form class="form-inline" ng-submit="addCard(selectedLane.id)">
     <input type="text" ng-model="card" placeholder="type card content here" autofocus="autofocus"/>
     <select ng-model="selectedLane" ng-options="lane.name for lane in room.lanes"><select>
-    <button ng-click="addCard(selectedLane.id)" class="btn">Add</button>
-</div>
+    <button type="submit" class="btn">Add</button>
+</form>
 <table class="highway">
     <tr>
         <td ng-repeat="lane in room.lanes" class="lane">
-            <div class="well">
-                <h2>{{ lane.name }}</h2>
-                <ul ng-repeat="card in room.cards | filter: {lane : lane.id} | filter: {user : user.id}" class="unstyled">
-                    <li class="card">{{ card.body }} <button class="btn btn-danger btn-mini" ng-click="remove(card)"><i class="icon-remove-sign icon-white"></i></button></li>
-                </ul>
-            </div>
-
+            <h2>{{ lane.name }}</h2>
+            <ul ng-repeat="card in room.cards | filter: {lane : lane.id} | filter: {user : user.id}" class="unstyled">
+                <li class="card">{{ card.body }}
+                    <button class="btn btn-link btn-mini" ng-click="remove(card)"><i class="icon-remove"></i></button>
+                </li>
+            </ul>
         </td>
     </tr>
 </table>
 
 <div class="users">
     <ul class="unstyled">
-        <li  ng-repeat="u in room.users" class="user">{{ u.name }}</li>
+        <li ng-repeat="u in room.users" class="user">{{ u.name }}</li>
     </ul>
 </div>
 
