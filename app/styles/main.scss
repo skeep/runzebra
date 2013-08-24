@@ -2,6 +2,16 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import "bootstrap-sass/lib/bootstrap";
+@import "compass";
+
+@include font-face('os-r', font-files('/styles/opensans/OpenSans-Regular.ttf'));
+@include font-face('os-l', font-files('/styles/opensans/OpenSans-Light.ttf'));
+
+body {
+  background: url('../images/concrete_wall.png');
+  font-family: 'os-r';
+}
+
 
 .highway{
   width: 100%;
@@ -17,12 +27,29 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
   width: 10em;
   height: 5em;
   border: 1px solid rgba(0,0,0,0.5);
-  background: yellow;
+  background: white;
   overflow: auto;
-  box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+  box-shadow: 0 2px 8px rgba(0,0,0,.5);
   border-radius: 3px;
   padding: 3px;
   float: left;
+  margin: 3px;
+  position: relative;
+
+  button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 0;
+    display: none;
+    opacity: .5;
+  }
+
+  &:hover{
+    button{
+      display: block;
+    }
+  }
 }
 
 .users{
@@ -40,4 +67,15 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
     color: white;
     line-height: 30px;
   }
+}
+
+h2 {
+  @include reset-box-model();
+  @include reset-font();
+  font-family: 'os-l';
+  font-size: 1.5em;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255,0.5);
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.8);
+  margin-bottom: 10px;
 }
