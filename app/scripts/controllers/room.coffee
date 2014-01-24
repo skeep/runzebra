@@ -1,12 +1,12 @@
-'use strict'
-
 angular.module('zebraApp')
   .controller 'RoomCtrl', ($scope, $routeParams, $location, angularFire, fb) ->
+    'use strict'
     user = localStorage['user']
     if typeof user is "undefined"
       $('#userModal').modal()
+      console.log name
       $scope.user =
-        name: 'Annonymous',
+        name: chance.name(),
         id: fb.makeid(5)
     else
       $scope.user = JSON.parse(user)
@@ -20,7 +20,8 @@ angular.module('zebraApp')
 
     startWatch = ($scope)->
 
-      $scope.selectedLane = $scope.room.lanes[0]
+      $scope.selectedLane = $scope.room.lanes[0];
+      $scope.card = chance.sentence()
 
       $scope.addUser = ()->
 #        console.log $scope.room.users
@@ -37,7 +38,8 @@ angular.module('zebraApp')
             id: fb.makeid(5)
             lane: laneId
             user: $scope.user.id
-          $scope.card = ''
+          $scope.card = chance.sentence()
+          $scope.selectedLane = $scope.room.lanes[0]
         this
 
       $scope.remove = (card)->

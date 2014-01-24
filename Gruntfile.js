@@ -57,7 +57,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       livereload: {
         options: {
@@ -255,7 +255,10 @@ module.exports = function (grunt) {
             '.htaccess',
             'bower_components/**/*',
             'images/{,*/}*.{gif,webp}',
-            'styles/fonts/*'
+            'styles/fonts/*',
+            'web-server.js',
+            'Procfile',
+            'package.json'
           ]
         }, {
           expand: true,
@@ -343,7 +346,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'concat',
     'copy',
-    'cdnify',
+//    'cdnify',
     'ngmin',
     'cssmin',
     'uglify',
@@ -353,7 +356,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'jshint',
-    'test',
+//    'test',
     'build'
   ]);
 };

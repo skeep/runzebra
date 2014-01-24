@@ -25,7 +25,7 @@ angular.module('zebraApp')
           name : 'what went right'
           id : fb.makeid(5)
         $scope[roomId].lanes.push
-          name : 'what should continute'
+          name : 'what should continue'
           id : fb.makeid(5)
         $scope[roomId].lanes.push
           name : 'what could improve'

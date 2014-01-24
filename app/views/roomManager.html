@@ -1,27 +1,23 @@
-<div>
-    Room Name : <input type="text" ng-model="room.name"/>
-    <br>
-    Room Manager URL : <input type="text" value="{{ roomManagerUrl }}"/>
-    <br>
-    Room Share URL : <input type="text" value="{{ roomUrl }}"/>
-
+<div class="alert alert-success" style="margin-top: 10px">
+    Room created successfully. Link to share is <a href="{{ roomUrl }}">{{ roomUrl }}</a>. And to come back to this view go to
+    <a href="{{ roomManagerUrl }}">{{ roomManagerUrl }}</a>
+</div>
+<div class="input-append">
+    <input class="span5" id="appendedInputButton" type="text" ng-model="laneName" />
+    <button class="btn btn-success" type="button" ng-click="createLane()">Add Lane</button>
 </div>
 
-<div><input type="text" ng-model="laneName"/><br>
-    <button type="button" ng-click="createLane()" class="btn">Add lane</button>
-</div>
 <table class="highway">
     <tr>
         <td ng-repeat="lane in room.lanes" class="lane">
             <h2>{{ lane.name }}</h2>
             <ul ng-repeat="card in room.cards | filter: {lane : lane.id}" class="unstyled">
-                <li class="card">{{ card.body }}</li>
+                <li class="card"><span>{{ users[card.user] }}</span><p>{{ card.body }}</p></li>
             </ul>
 
         </td>
     </tr>
 </table>
-
 
 <div class="users">
     <ul class="unstyled">

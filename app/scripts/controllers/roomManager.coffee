@@ -18,4 +18,7 @@ angular.module('zebraApp')
           name: $scope.laneName
           key: fb.makeid(5)
         })
-
+      $scope.users = {}
+      _.each $scope.room.users, (d, i)->
+        $scope.users[d.id] = d.name
+        this

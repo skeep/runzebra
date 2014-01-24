@@ -4,8 +4,8 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import "bootstrap-sass/lib/bootstrap";
 @import "compass";
 
-@include font-face('os-r', font-files('/styles/opensans/OpenSans-Regular.ttf'));
-@include font-face('os-l', font-files('/styles/opensans/OpenSans-Light.ttf'));
+@include font-face('os-r', font-files('/styles/fonts/opensans/OpenSans-Regular.ttf'));
+@include font-face('os-l', font-files('/styles/fonts/opensans/OpenSans-Light.ttf'));
 
 body {
   background: url('../images/concrete_wall.png');
@@ -25,17 +25,27 @@ body {
 
 .card{
   width: 10em;
-  height: 5em;
+  height: 7em;
   border: 1px solid rgba(0,0,0,0.5);
   background: white;
   overflow: auto;
   box-shadow: 0 2px 8px rgba(0,0,0,.5);
+  text-shadow: 1px 1px 0 rgba(0,0,0,.1);
   border-radius: 3px;
-  padding: 3px;
   float: left;
   margin: 3px;
   position: relative;
-
+  background-color: rgb(255,255,255); // Old browsers
+  @include filter-gradient(#ffffff, #ededed, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%));
+  span{
+    display: block;
+    padding: 3px;
+    background: rgba(0,0,0,0.1);
+  }
+  p{
+    padding: 3px;
+  }
   button{
     position: absolute;
     top: 0;
@@ -48,6 +58,9 @@ body {
   &:hover{
     button{
       display: block;
+      &:hover{
+        opacity: 1;
+      }
     }
   }
 }
@@ -58,14 +71,20 @@ body {
   left: 0;
   overflow: hidden;
   width: 100%;
+  padding: 5px;
   .user{
     float: left;
     width: 100px;
     height: 30px;
     text-align: center;
-    background: rgba(0,0,0,.8);
-    color: white;
+    color: black;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
     line-height: 30px;
+    border-radius: 20px;
+    background-color: rgb(252,234,187); // Old browsers
+    @include filter-gradient(#fceabb, #fbdf93, vertical); // IE6-9
+    @include background-image(linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%));
+    border: 2px solid rgba(0,0,0,1);
   }
 }
 
@@ -78,4 +97,19 @@ h2 {
   color: rgba(255, 255, 255,0.5);
   text-shadow: -1px -1px 0 rgba(0,0,0,0.8);
   margin-bottom: 10px;
+}
+.right{
+  background-color: #b4df5b; // Old browsers
+  @include filter-gradient(#b4df5b, #b4df5b, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  #b4df5b 0%,#b4df5b 100%));
+}
+.ok{
+  background-color: #f1e767; // Old browsers
+  @include filter-gradient(#f1e767, #feb645, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  #f1e767 0%,#feb645 100%));
+}
+.bad{
+  background-color: #ff3019; // Old browsers
+  @include filter-gradient(#ff3019, #cf0404, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  #ff3019 0%,#cf0404 100%));
 }

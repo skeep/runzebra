@@ -1,8 +1,10 @@
-<form class="form-inline" ng-submit="addCard(selectedLane.id)">
-    <input type="text" ng-model="card" placeholder="type card content here" autofocus="autofocus"/>
-    <select ng-model="selectedLane" ng-options="lane.name for lane in room.lanes"><select>
-    <button type="submit" class="btn">Add</button>
-</form>
+<div style="width: 700px; margin: 10px auto" class="text-center">
+    <form class="form-inline" ng-submit="addCard(selectedLane.id)">
+        <input type="text" ng-model="card" placeholder="type card content here" autofocus="autofocus"/>
+        <select ng-model="selectedLane" ng-options="lane.name for lane in room.lanes"><select>
+            <button type="submit" class="btn">Add</button>
+    </form>
+</div>
 <table class="highway">
     <tr>
         <td ng-repeat="lane in room.lanes" class="lane">
@@ -16,7 +18,7 @@
     </tr>
 </table>
 
-<div class="users">
+<div class="users text-center">
     <ul class="unstyled">
         <li ng-repeat="u in room.users" class="user">{{ u.name }}</li>
     </ul>
@@ -26,12 +28,12 @@
 <div class="modal hide fade" id="userModal" data-backdrop="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>Modal header</h3>
+        <h3>Your username please ...</h3>
     </div>
     <div class="modal-body">
-        <p><input type="text" ng-model="user.name"/></p>
+        <p><input type="text" ng-model="user.name" class="input-block-level"/></p>
     </div>
     <div class="modal-footer">
-        <a data-dismiss="modal" class="btn btn-primary" ng-click="addUser()">Ok</a>
+        <a data-dismiss="modal" class="btn btn-primary" ng-click="addUser()">Yha that's me !!!</a>
     </div>
 </div>
